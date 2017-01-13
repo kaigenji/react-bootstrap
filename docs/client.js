@@ -9,7 +9,7 @@ import {Router, browserHistory} from 'react-router';
 import Root from './src/Root';
 import routes from './src/Routes';
 
-import 'bootstrap/less/bootstrap.less';
+import './sass/bootstrap.scss';
 
 import './assets/docs.css';
 import './assets/style.css';
