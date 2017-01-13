@@ -15,7 +15,7 @@ const devEntryBundle = [
   entryFile,
 ];
 
-baseConfig.plugins.push(new ExtractTextPlugin('[name].css'));
+baseConfig.plugins.push(new ExtractTextPlugin('[name].css', {disable: true}));
 if (options.debug) {
   baseConfig.plugins.push(new webpack.NoErrorsPlugin());
 }
@@ -43,6 +43,8 @@ export default {
         loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}`) },
       { test: /\.less$/,
         loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}!less${cssSourceMap}`) },
+      { test: /\.scss$/,
+          loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}!sass${cssSourceMap}`) },
       { test: /\.json$/, loader: 'json' },
       { test: /\.jpe?g$|\.gif$|\.png|\.ico$/, loader: 'file?name=[name].[ext]' },
       { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]' },
